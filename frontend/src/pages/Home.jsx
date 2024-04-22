@@ -18,7 +18,7 @@ const Home = () => {
         setFeaturedProduct(productData);
         
         const postData = await getPosts();
-        setPosts(postData);
+        setPosts(postData.slice(0,3));
       } catch (error) {
         console.log("Error fetching data:", error);
       }
