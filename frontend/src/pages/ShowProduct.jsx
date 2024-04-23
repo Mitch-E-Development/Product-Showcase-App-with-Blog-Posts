@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../services/productService";
 
 import ProductBanner from "../components/ShowProduct/ProductBanner";
@@ -9,11 +10,10 @@ import CallToAction from "../components/ShowProduct/CallToAction";
 
 const ShowProduct = () => {
   const [product, setProduct] = useState({});
-
-  const id = "66230e93862e1249483e6c43";
+  const {id} = useParams();
 
   useEffect(() => {
-    const getData = async () => {
+    const fetchData = async () => {
       try {
         const productData = await getSingleProduct(id);
         setProduct(productData);
@@ -22,19 +22,15 @@ const ShowProduct = () => {
       }
     };
 
-    getData();
-  }, []);
+    fetchData();
+  }, [id]);
 
   return (
     <div className="">
       <ProductBanner product={product} />
-
       <Summary product={product} />
-
       <Features product={product} />
-
       <Reasons product={product} />
-
       <CallToAction product={product} />
     </div>
   );

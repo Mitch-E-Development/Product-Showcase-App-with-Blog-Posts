@@ -24,51 +24,31 @@ const Posts = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    // Apply filter and search query
-    let filtered = posts;
+  // Function to handle search
+  const handleSearch = (query) => {
+    setSearchQuery(query); // Update searchQuery state
+    const filtered = posts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
+        post.author.toLowerCase().includes(query.toLowerCase()) ||
+        post.category.toLowerCase().includes(query.toLowerCase()) ||
+        post.content.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredPosts(filtered); // Update filteredPosts state
+  };
 
-    // Check if the clear button was clicked
-    if (!filter && !searchQuery) {
-      filtered = filtered.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-    }
-
-    if (searchQuery) {
-      filtered = filtered.filter(
-        (post) =>
-          post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          post.content.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    if (filter === "GUIDES") {
-      filtered = filtered.filter((post) => post.category === "Guides");
-    } else if (filter === "NEWS") {
-      filtered = filtered.filter((post) => post.category === "News");
-    } else if (filter === "NEWEST") {
-      filtered = filtered.sort(
-        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
-      );
-    } else if (filter === "OLDEST") {
-      filtered = filtered.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-    }
-
+  const handleFilter = (filter) => {
+    setFilter(filter);
+    const filtered = posts.filter((post) =>
+      post.category.toLowerCase().includes(filter.toLowerCase())
+    );
     setFilteredPosts(filtered);
-  }, [filter, searchQuery, posts]);
+  };
 
   return (
     <div className="">
       <Banner />
-      <Filters
-        filter={filter}
-        setFilter={setFilter}
-        setSearchQuery={setSearchQuery}
-      />
+      <Filters handleFilter={handleFilter} handleSearch={handleSearch} />
       <PostsCards posts={filteredPosts} />
     </div>
   );

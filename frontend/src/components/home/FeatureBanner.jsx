@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FeatureBanner = ({ featuredProduct }) => {
   return (
-    <div className="bg-blue-200 p-40">
+    <div className="bg-blue-200 p-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4 ">
         
         <h2 className="text-4xl font-semibold text-center mb-6">
@@ -10,11 +11,11 @@ const FeatureBanner = ({ featuredProduct }) => {
         </h2>
 
         <div className="flex justify-center text-center mb-16">
-          <ul className="justify-center text-center md:flex  md:flex-wrap">
+          <ul className="justify-center text-center md:flex md:flex-wrap">
             {/* Check if features exist before mapping */}
             {featuredProduct.features &&
               featuredProduct.features.map((feature, index) => (
-                <li key={index} className="font-semibold mx-16 py-2">
+                <li key={index} className="font-semibold mx-10 py-2">
                   {feature}
                 </li>
               ))}
@@ -27,7 +28,8 @@ const FeatureBanner = ({ featuredProduct }) => {
 
         <div className="justify-center text-center">
           <p className="mb-10 text-xl">Try it today!</p>
-          <button
+          <Link
+            to={`/products/${featuredProduct._id}`}
             className="
               bg-white 
               text-blue-500 
@@ -40,8 +42,8 @@ const FeatureBanner = ({ featuredProduct }) => {
               transition 
               duration-300"
           >
-            DOWNLOAD
-          </button>
+            TRY NOW
+          </Link>
         </div>
 
       </div>

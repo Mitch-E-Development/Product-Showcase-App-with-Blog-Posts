@@ -1,18 +1,9 @@
 import axios from "axios";
 
-export const getPosts = async (filterBy, sortBy) => {
+export const getPosts = async () => {
   try {
-    // Construct query parameters based on filter and sort options
-    let queryParams = '';
-    if (filterBy) {
-      queryParams += `?filterBy=${filterBy}`;
-    }
-    if (sortBy) {
-      queryParams += `${queryParams ? '&' : '?'}sortBy=${sortBy}`;
-    }
-
     // Fetch posts with optional query parameters
-    const response = await axios.get(`http://localhost:5050/api/posts${queryParams}`);
+    const response = await axios.get(`http://localhost:5050/api/posts`);
     return response.data;
   } catch (error) {
     console.log("Error getting post data from server");
@@ -20,20 +11,25 @@ export const getPosts = async (filterBy, sortBy) => {
   }
 };
 
-// export const getPosts = async (filterBy, sortBy) => {
-//   try {
-//     let queryParams = '';
-//     if (filterBy) {
-//       queryParams += `filterBy=${filterBy}&`;
-//     }
-//     if (sortBy) {
-//       queryParams += `sortBy=${sortBy}`;
-//     }
+export const searchPosts = async (query) => {
+  try {
+      const response = await axios.get(`http://localhost:5050/api/search?query=${query}`);
+      return response.data;
+  } catch (error) {
+      console.error("Error searching posts:", error);
+      throw error;
+  }
+};
 
-//     const response = await axios.get(`http://localhost:5050/api/posts?${queryParams}`);
-//     return response.data;
-//   } catch (error) {
-//     console.log("Error getting post data from server");
-//     throw error;
-//   }
-// };
+
+export const getSinglePost = async (id) => {
+  //fetch product data from express server
+  try {
+    const response = await axios.get(`http://localhost:5050/api/posts/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log("Error getting post data from server");
+    throw error;
+  }
+};
+

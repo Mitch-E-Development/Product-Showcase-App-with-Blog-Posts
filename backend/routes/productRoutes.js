@@ -12,17 +12,21 @@ router.get('/products', async (req,res) => {
     }
 })
 
-router.get('/products/:id', async (req,res) => {
-    try{
-        const {id} = req.params;
-        const product = await Product.findById(id)
-        res.json(product)
+router.get('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.json(product);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Error fetching product:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-})
+});
 
-// route for creating a new post
+// route for creating a new product
 router.post('/products', async (req, res) => {
     try{
         const newProduct = new Product(req.body);
