@@ -28,9 +28,7 @@ const Home = () => {
   return (
     <div>
       <FeatureBanner featuredProduct={featuredProduct} />
-      <hr />
-      <LatestPosts posts={posts}/>
-      <hr />
+      <LatestPosts posts={posts}/>  
       <NavCards />
     </div>
   );

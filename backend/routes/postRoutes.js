@@ -14,6 +14,32 @@ router.get('/posts', async (req,res) => {
     }
 })
 
+// // Route for getting all posts with pagination
+// router.get('/posts', async (req, res) => {
+//     const page = parseInt(req.query.page) || 1;
+//     const pageSize = parseInt(req.query.pageSize) || 10; // Change the default page size as per your requirement
+//     const skip = (page - 1) * pageSize;
+
+//     try {
+//         // You might want to implement filtering here as well
+//         const posts = await Post.find()
+//             .skip(skip)
+//             .limit(pageSize)
+//             .exec();
+
+//         const totalPosts = await Post.countDocuments();
+
+//         res.json({
+//             posts,
+//             currentPage: page,
+//             totalPages: Math.ceil(totalPosts / pageSize)
+//         });
+//     } catch (error) {
+//         console.error('Error fetching posts:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
+
 //route for getting a single post
 router.get('/posts/:id', async (req, res) => {
     const { id } = req.params;

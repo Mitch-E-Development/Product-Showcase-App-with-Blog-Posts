@@ -1,40 +1,63 @@
+import React from "react";
 
+const Pagination = ({
+  currentPage,
+  postsPerPage,
+  length,
+  handlePagination,
+}) => {
+  const paginationNumbers = [];
 
-const Pagination = ({ currentPage, postsPerPage, totalPosts, paginate }) => {
-    const pageNumbers = Math.ceil(totalPosts / postsPerPage);
-  
-    return (
-      <div className="flex justify-center p-20">
-        <button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-4 py-2 mx-20 bg-blue-500 text-white rounded-lg shadow-md"
-        >
-          Previous
-        </button>
+  for (let i = 1; i <= Math.ceil(length / postsPerPage); i++) {
+    paginationNumbers.push(i);
+  }
 
+  return (
+    <div className="flex items-center justify-around mt-4 pt-5 pb-20">
+      {/* Previous Page Arrow */}
+      <button
+        className={`pagination-arrow ${
+          currentPage === 1
+            ? "opacity-50 cursor-not-allowed"
+            : "mx-1 py-1 px-3 rounded-full hover:bg-gray-200"
+        }`}
+        onClick={() => handlePagination(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        {"<<"}
+      </button>
 
-        {Array.from({ length: pageNumbers }, (_, i) => (
+      {/* Page Numbers */}
+      <div>
+        {paginationNumbers.map((pageNumber) => (
           <button
-            key={i + 1}
-            onClick={() => paginate(i + 1)}
-            className={`p-1  ${currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} rounded-lg shadow-md mr-2`}
+            key={pageNumber}
+            className={`mx-1 py-1 px-3 rounded-full ${
+              currentPage === pageNumber
+                ? "bg-blue-500 text-white"
+                : "hover:bg-gray-200"
+            }`}
+            onClick={() => handlePagination(pageNumber)}
           >
-            {i + 1}
+            {pageNumber}
           </button>
         ))}
-
-        
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={currentPage === pageNumbers}
-          className="px-4 py-2 mx-20 bg-blue-500 text-white rounded-lg shadow-md"
-        >
-          Next
-        </button>
       </div>
-    );
-  }
-  
 
-export default Pagination
+      {/* Next Page Arrow */}
+      <button
+        className={`pagination-arrow ${
+          currentPage === Math.ceil(length / postsPerPage)
+            ? "opacity-50 cursor-not-allowed"
+            : "mx-1 py-1 px-3 rounded-full hover:bg-gray-200"
+        }`}
+        onClick={() => handlePagination(currentPage + 1)}
+        disabled={currentPage === Math.ceil(length / postsPerPage)}
+      >
+        {">>"}
+      </button>
+    </div>
+  );
+};
+
+export default Pagination;

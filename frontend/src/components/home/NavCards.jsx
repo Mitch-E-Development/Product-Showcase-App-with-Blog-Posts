@@ -2,8 +2,8 @@ import React from 'react'
 
 const NavCards = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4 py-10">
-      <h2 className="text-3xl font-bold mb-4">Explore</h2>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4 py-20 pb-40">
+      <h2 className="text-4xl font-bold mb-4">Explore</h2>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-10 text-center">
         
         <div className="p-4 rounded-lg bg-blue-200 hover:shadow-2xl">
@@ -16,6 +16,7 @@ const NavCards = () => {
             py-2 
             rounded-lg 
             shadow-lg 
+            text-xl
             hover:bg-white 
             hover:text-blue-500 
             transition 
@@ -35,6 +36,7 @@ const NavCards = () => {
             py-2 
             rounded-lg 
             shadow-lg 
+            text-xl
             hover:bg-white 
             hover:text-blue-500 
             transition 
@@ -54,6 +56,7 @@ const NavCards = () => {
             py-2 
             rounded-lg 
             shadow-lg 
+            text-xl
             hover:bg-white 
             hover:text-blue-500 
             transition 
@@ -73,6 +76,7 @@ const NavCards = () => {
             py-2 
             rounded-lg 
             shadow-lg 
+            text-xl
             hover:bg-white 
             hover:text-blue-500 
             transition 

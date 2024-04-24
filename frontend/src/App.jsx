@@ -1,9 +1,11 @@
 import React from 'react';
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
+  BrowserRouter,
+  // createBrowserRouter,
+  // createRoutesFromElements,
   Route,
-  RouterProvider,
+  // RouterProvider,
+  Routes,
 } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -12,27 +14,25 @@ import Posts from './pages/Posts';
 import ShowPost from './pages/ShowPost';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-    <Route path='/' element={<Home />} />
-    {/* ADD ROUTE/PAGE FOR PRODUCT GALLERY */}
-    <Route path='/products/:id' element={<ShowProduct/>} />
-    <Route path='/posts' element={<Posts />} />
-    <Route path='/posts/:id' element={<ShowPost />} />
-    <Route path='/about' element={<About />} />
-    <Route path='/contact' element={<Contact />} />
-    </>
-  )
-)
 const App = () => {
 
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<ShowProduct/>} />
+        <Route path='/products/:id' element={<ShowProduct/>} />
+        <Route path='/posts' element={<Posts />} />
+        <Route path='/posts/:id' element={<ShowPost />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 };
 
