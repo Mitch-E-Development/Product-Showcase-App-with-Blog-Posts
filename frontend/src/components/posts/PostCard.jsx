@@ -2,29 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
+  // Style object for the background image
+  const bannerStyle = {
+    backgroundImage: `url(${post.featureImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "relative", // Ensure relative positioning for absolute positioning of text overlay
+    paddingTop: "75%", // 4:3 aspect ratio (300 / 400 = 0.75)
+  };
+
   return (
     <div className="h-full flex flex-col">
-    <Link to={`/posts/${post._id}`} className="flex-grow">
-      <div className="bg-blue-200 rounded-lg hover:shadow-2xl overflow-hidden">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHq2GPqup7XzN0o8A9WAs4uGzfCESHbA50wm1WlGv_xw&s"
-          alt="[FEATURE IMG]"
-          className="w-full h-auto"
-        ></img>
-        <div className="bg-blue-500 p-4 opacity-[80%] h-[130px] flex flex-col justify-between">
-          <h2 className="text-2xl text-white font-semibold mb-2">
-            {post.title}
-          </h2>
-          <div className="flex justify-between">
-            <p className="text-md text-white text-left">{post.category}</p>
-            <p className="text-md text-white text-right">
-              {new Date(post.createdAt).toLocaleDateString()}
-            </p>
+      <Link to={`/posts/${post._id}`} className="flex-grow">
+        <div
+          className="bg-orange-300 rounded-lg hover:shadow-xl hover:shadow-orange-300 overflow-hidden relative"
+          style={bannerStyle} // Apply background image style
+        >
+          <div className="absolute inset-0 flex flex-col justify-end">
+            <div className="bg-black bg-opacity-30 p-4">
+              <h2 className="text-xl text-white mb-2">
+                {post.title}
+              </h2>
+              <div className="flex justify-between text-sm text-white">
+                <p>{post.category}</p>
+                <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
-  </div>
+      </Link>
+    </div>
   );
 };
 

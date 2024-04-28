@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const api_url = 'http://localhost:5050/api';
+
 export const getSingleProduct = async (id) => {
   //fetch product data from express server
   try {
-    const response = await axios.get(`http://localhost:5050/api/products/${id}`);
+    const response = await axios.get(`${api_url}/products/${id}`);
     return response.data;
   } catch (error) {
     console.log("Error getting product data from server");
@@ -14,10 +16,10 @@ export const getSingleProduct = async (id) => {
 export const getFeatureProduct = async () => {
   //fetch feaature product data from express server
   try {
-    const response = await axios.get(`http://localhost:5050/api/products/66230e93862e1249483e6c43`);
+    const response = await axios.get(`${api_url}/featured`);
     return response.data;
   } catch (error) {
-    console.log("Error getting product data from server");
+    console.log("Error getting feature product data from server");
     throw error;
   }
 };
@@ -25,7 +27,7 @@ export const getFeatureProduct = async () => {
 export const getProducts = async () => {
   //fetch product data from express server
   try {
-    const response = await axios.get(`http://localhost:5050/api/products`);
+    const response = await axios.get(`${api_url}/products`);
     return response.data;
   } catch (error) {
     console.log("Error getting product data from server");

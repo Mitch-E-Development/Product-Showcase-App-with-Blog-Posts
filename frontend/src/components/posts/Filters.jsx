@@ -1,7 +1,6 @@
 import React from "react";
 
 const Filters = ({ handleFilter, handleSearch }) => {
-
   return (
     <div className="p-12">
       <div className="flex gap-2 text-center justify-center w-full p-10">
@@ -15,10 +14,20 @@ const Filters = ({ handleFilter, handleSearch }) => {
 
       {/* filter buttons */}
       <div className="flex flex-wrap gap-2 sm:flex-row justify-center text-center sm:w-full md:w-auto">
-      <div>
+        <div>
           <button
-            className="min-w-[100px] bg-blue-500 text-white px-4 py-1 rounded-lg shadow-lg hover:bg-white hover:text-blue-500 hover:border-2 hover:border-blue-500 transition duration-300"
-            value={'all'}
+            className="
+            min-w-[100px] 
+            bg-orange-500 
+            text-white 
+            text-lg
+            px-4 py-1 
+            rounded-lg 
+            hover:shadow-xl
+            hover:shadow-orange-300 
+            transition 
+            duration-300"
+            value={"all"}
             onClick={(e) => handleFilter("")}
           >
             ALL
@@ -27,18 +36,16 @@ const Filters = ({ handleFilter, handleSearch }) => {
         <div>
           <button
             className="
-              min-w-[100px] 
-              bg-blue-500 
-              text-white 
-              px-4 py-1 
-              rounded-lg 
-              shadow-lg 
-              hover:bg-white 
-              hover:text-blue-500 
-              hover:border-2 
-              hover:border-blue-500 
-              transition 
-              duration-300"
+            text-lg
+            min-w-[100px] 
+            bg-orange-500 
+            text-white 
+            px-4 py-1 
+            rounded-lg 
+            hover:shadow-xl
+            hover:shadow-orange-300 
+            transition 
+            duration-300"
             onClick={(e) => handleFilter("news")}
           >
             NEWS
@@ -47,22 +54,39 @@ const Filters = ({ handleFilter, handleSearch }) => {
         <div>
           <button
             className="
+              text-lg
               min-w-[100px] 
-              bg-blue-500 
+              bg-orange-500 
               text-white 
               px-4 py-1 
               rounded-lg 
-              shadow-lg 
-              hover:bg-white 
-              hover:text-blue-500 
-              hover:border-2 
-              hover:border-blue-500 
+              hover:shadow-xl
+              hover:shadow-orange-300  
               transition 
               duration-300"
-            value={'guides'}
+            value={"guides"}
             onClick={(e) => handleFilter("guides")}
           >
             GUIDES
+          </button>
+        </div>
+        <div>
+          <button
+            className="
+              text-lg
+              min-w-[100px] 
+              bg-orange-500 
+              text-white 
+              px-4 py-1 
+              rounded-lg 
+              hover:shadow-xl
+              hover:shadow-orange-300 
+              transition 
+              duration-300"
+            value={"culture"}
+            onClick={(e) => handleFilter("culture")}
+          >
+            CULTURE
           </button>
         </div>
       </div>

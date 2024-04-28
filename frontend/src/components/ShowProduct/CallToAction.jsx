@@ -1,6 +1,11 @@
 import React from "react";
 
 const CallToAction = (product) => {
+  // Check if product exist before rendering
+  if (!product) {
+    return null; // or handle the case where product is undefined
+  }
+
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4 py-20 ">
@@ -13,16 +18,13 @@ const CallToAction = (product) => {
               <p className="p-2">
                 Utilities for controlling how rows are positioned in multi-row
                 positioned in multi-row flex and grid containers. in multi-row
-                flex and grid containers. Utilities for controlling how rows are
-                positioned in multi-row
+                flex and grid containers.
               </p>
               <p className="p-2">
                 Utilities for controlling how rows are positioned in multi-row
                 positioned in multi-row .
               </p>
-              <p className="p-6 text-xl">
-                Experience the finest today!
-              </p>
+              <p className="p-6 text-xl">Join a meditation group today!</p>
             </div>
             <button
               className="

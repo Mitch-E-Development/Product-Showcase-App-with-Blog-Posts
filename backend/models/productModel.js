@@ -3,9 +3,19 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     name: String,
     description: String,
-    features: Array,
+    featured: Boolean,
+    features: [{
+        name: String,
+        description: String,
+        image: String
+    }],
+    benefits: [{
+        name: String,
+        description: String,
+        image: String,
+    }],
     downloadURL: String,
-    media: Array,   
+    featureImage: String
 });
 
 module.exports = mongoose.model('Product', productSchema);

@@ -10,11 +10,10 @@ const Home = () => {
   const [featuredProduct, setFeaturedProduct] = useState({});
 
   useEffect(() => {
-    const getData = async () => {
+    const fetchData = async () => {
       try {
         const productData = await getFeatureProduct();
-        setFeaturedProduct(productData);
-        
+        setFeaturedProduct(productData);       
         const postData = await getPosts();
         setPosts(postData.slice(0,3));
       } catch (error) {
@@ -22,7 +21,7 @@ const Home = () => {
       }
     };
 
-    getData();
+    fetchData();
   }, []);
 
   return (

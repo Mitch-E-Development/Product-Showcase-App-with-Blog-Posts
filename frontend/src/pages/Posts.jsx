@@ -13,7 +13,7 @@ const Posts = () => {
 
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(6);
 
    // Calculate current posts to display based on pagination
    const indexOfLastPost = currentPage * postsPerPage;

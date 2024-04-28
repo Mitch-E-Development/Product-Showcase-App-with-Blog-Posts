@@ -13,13 +13,13 @@ const Pagination = ({
   }
 
   return (
-    <div className="flex items-center justify-around mt-4 pt-5 pb-20">
+    <div className="flex items-center justify-around mt-4 pt-5 pb-20 text-xl">
       {/* Previous Page Arrow */}
       <button
         className={`pagination-arrow ${
           currentPage === 1
             ? "opacity-50 cursor-not-allowed"
-            : "mx-1 py-1 px-3 rounded-full hover:bg-gray-200"
+            : "mx-1 py-1 px-3 ounded-full hover:bg-orange-500 hover:text-white"
         }`}
         onClick={() => handlePagination(currentPage - 1)}
         disabled={currentPage === 1}
@@ -34,8 +34,8 @@ const Pagination = ({
             key={pageNumber}
             className={`mx-1 py-1 px-3 rounded-full ${
               currentPage === pageNumber
-                ? "bg-blue-500 text-white"
-                : "hover:bg-gray-200"
+                ? "bg-orange-500 text-white"
+                : "hover:bg-orange-500"
             }`}
             onClick={() => handlePagination(pageNumber)}
           >
@@ -49,7 +49,7 @@ const Pagination = ({
         className={`pagination-arrow ${
           currentPage === Math.ceil(length / postsPerPage)
             ? "opacity-50 cursor-not-allowed"
-            : "mx-1 py-1 px-3 rounded-full hover:bg-gray-200"
+            : "mx-1 py-1 px-3 rounded-full hover:bg-orange-500 hover:text-white"
         }`}
         onClick={() => handlePagination(currentPage + 1)}
         disabled={currentPage === Math.ceil(length / postsPerPage)}
