@@ -11,25 +11,27 @@ const Summary = ({ product }) => {
       <div className="justify-center text-center">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 text-center gap-x-20">
           <div className="w-full p-5">
-            <h2 className="text-3xl font-semibold mb-6">
+            <h2 className="text-3xl mb-6">
               A Global Meditation Group
             </h2>
-            <p>{product.description}</p>
+            <p className="text-xl">{product.description}</p>
           </div>
 
-          <div className="bg-blue-200 w-full justify-center content-center p-10 rounded-lg hover:shadow-2xl">
+          <div className="bg-white border-4 border-orange-500 w-full justify-center content-center p-10 rounded-lg hover:shadow-xl hover:shadow-orange-300">
             <button
               className="
-              bg-blue-500
+              bg-orange-500
               text-white
               px-4 
               py-2 
               rounded-lg 
               shadow-lg 
-              hover:bg-white
-              hover:text-blue-500 
+              hover:bg-orange-300
+              hover:text-orange-500 
               transition 
-              duration-300"
+              duration-300
+              text-lg
+              "
             >
               DOWNLOAD
             </button>

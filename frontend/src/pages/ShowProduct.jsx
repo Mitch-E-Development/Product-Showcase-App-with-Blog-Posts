@@ -10,7 +10,9 @@ import CallToAction from "../components/ShowProduct/CallToAction";
 
 const ShowProduct = () => {
   const [product, setProduct] = useState({});
-  const {id} = useParams();
+  const [hoveredFeature, setHoveredFeature] = useState(null);
+  const [hoveredReason, setHoveredReason] = useState(null); // Add state for hovered reason
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,8 +31,8 @@ const ShowProduct = () => {
     <div className="">
       <ProductBanner product={product} />
       <Summary product={product} />
-      <Features product={product} />
-      <Reasons product={product} />
+      <Features product={product} setHoveredFeature={setHoveredFeature} hoveredFeature={hoveredFeature} />
+      <Reasons product={product} setHoveredReason={setHoveredReason} hoveredReason={hoveredReason} /> {/* Pass hoveredReason state and setHoveredReason function */}
       <CallToAction product={product} />
     </div>
   );

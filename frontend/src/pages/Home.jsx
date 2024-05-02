@@ -28,7 +28,7 @@ const Home = () => {
     <div>
       <FeatureBanner featuredProduct={featuredProduct} />
       <LatestPosts posts={posts}/>  
-      <NavCards />
+      <NavCards products={featuredProduct} />
     </div>
   );
 };

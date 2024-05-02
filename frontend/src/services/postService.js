@@ -35,3 +35,29 @@ export const getSinglePost = async (id) => {
   }
 };
 
+// filterService.js
+export const filterPosts = (posts, categoryFilter, searchQuery) => {
+  return posts.filter((post) => {
+    const title = post.title.toLowerCase();
+    const author = post.author.toLowerCase();
+    const category = post.category.toLowerCase();
+    const contentSections = post.content.sections
+      .map((section) => `${section.heading} ${section.text}`)
+      .join(" ")
+      .toLowerCase();
+
+    const passesCategoryFilter =
+      categoryFilter === "" || category.includes(categoryFilter.toLowerCase());
+
+    const passesSearchQuery =
+      searchQuery === "" ||
+      title.includes(searchQuery.toLowerCase()) ||
+      author.includes(searchQuery.toLowerCase()) ||
+      category.includes(searchQuery.toLowerCase()) ||
+      contentSections.includes(searchQuery.toLowerCase());
+
+    return passesCategoryFilter && passesSearchQuery;
+  });
+};
+
+

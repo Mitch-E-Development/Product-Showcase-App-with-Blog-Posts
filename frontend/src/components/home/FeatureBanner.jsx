@@ -7,31 +7,30 @@ const FeatureBanner = ({ featuredProduct }) => {
     return null; // or handle the case where product is undefined
   }
 
-    // Style object for the background image
-    const bannerStyle = {
-      backgroundImage: `url(${featuredProduct.featureImage})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    };
-  
-  return (
-    <div className="bg-blue-200 p-20 text-white" style={bannerStyle}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 p-4 ">
-        <h2 className="text-6xl text-center">
-          {featuredProduct.name}
-        </h2>
+  // Style object for the background image
+  const bannerStyle = {
+    backgroundImage: `url(${featuredProduct.featureImage})`,
+    height: "500px", // Adjust height as needed
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
 
-        <div className="flex justify-center text-lg text-center my-20">
-          <p className="text-2xl">{featuredProduct.description}</p>
+  return (
+    <div className="bg-blue-200 p-10 text-white flex items-center justify-center" style={bannerStyle}>
+      <div className="max-w-7xl mx-auto p-4">
+        <h2 className="text-5xl text-center">{featuredProduct.name}</h2>
+
+        <div className="text-xl text-center my-10">
+          <p className="lg:px-40">{featuredProduct.description}</p>
         </div>
 
-        <div className="justify-center text-center">
+        <div className="text-center">
           <Link
             to={`/products/${featuredProduct._id}`}
             className="
               bg-orange-500
-              text-3xl
+              text-xl
               text-white 
               px-4 
               py-2

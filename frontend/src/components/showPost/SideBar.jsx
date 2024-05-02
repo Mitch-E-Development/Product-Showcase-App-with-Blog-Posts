@@ -18,20 +18,27 @@ const SideBar = ({ post }) => {
         "
     >
       {/* Table of Contents Goes Here */}
-      <div className="text-xl pr-10">
+      <div className="text-lg pr-10">
         <h2 className="text-2xl text-center">Table of Contents</h2>
         <div className="my-6">
-          <h2 className="text-xl">1. {post.content.intro.heading}</h2>
+          <h2 className="">
+            1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#intro" className="text-orange-500 hover:text-orange-300">{post.content.intro.heading}</a>
+          </h2>
         </div>
         {post.content.sections.map((section, index) => (
           <div key={index} className="my-6">
             <h2 className="">
-              {index + 2}. {section.heading}
+              {index + 2}.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href={`#section-${index}`} className="text-orange-500 hover:text-orange-300">{section.heading}</a>
             </h2>
           </div>
         ))}
         <div className="my-6">
-          <h2 className="">7. {post.content.conclusion.heading}</h2>
+          <h2 className="">
+            {post.content.sections.length + 2}.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#conclusion" className="text-orange-500 hover:text-orange-300">{post.content.conclusion.heading}</a>
+          </h2>
         </div>
       </div>
     </div>

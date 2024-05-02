@@ -14,12 +14,12 @@ const Form = ({
 }) => {
   
   return (
-    <div className="pb-5 pt-20 px-10 md:px-20 lg:px-40 ">
-      <div className="p-6 bg-blue-200 content-center rounded-lg hover:shadow-2xl">
+    <div className="pb-5 pt-20 px-10 md:px-20 xl:px-40 ">
+      <div className="p-6 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
         <div className="grid grid-cols-1 grid-cols-1 xl:grid-cols-2 gap-x-14 gap-y-10">
-          <div>
-            <h2 className="text-2xl pb-2">Reach Out to Us</h2>
-            <p className="pb-6">
+          <div className="px-6 flex flex-col flex-cols-1 justify-center">
+            <h2 className="text-3xl pb-4 text-center">Reach Out to Us</h2>
+            <p className="pb-10">
               As the creators of I-Meditate, we are passionate about leveraging
               technology to bring people together in pursuit of well-being and
               inner harmony. As the creators of I-Meditate, we are passionate
@@ -33,7 +33,7 @@ const Form = ({
               <li className="py-1"><b>Country</b> Australia</li>
             </ul>
           </div>
-
+          
           <form
             onSubmit={(e) => onSubmit(e)}
             className="grid grid-cols-1 gap-y-4"
@@ -48,7 +48,7 @@ const Form = ({
                 onChange={(e) => setName(e.target.value)}
                 id="name"
                 placeholder="Your first and last name"
-                className="w-full"
+                className="w-full border border-gray-600"
               />
             </div>
 
@@ -62,7 +62,7 @@ const Form = ({
                 onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 placeholder="john@doe.com"
-                className="w-full"
+                className="w-full border border-gray-600"
               />
             </div>
 
@@ -76,7 +76,7 @@ const Form = ({
                 onChange={(e) => setSubject(e.target.value)}
                 id="name"
                 placeholder="Your message subject"
-                className="w-full"
+                className="w-full border border-gray-600"
               />
             </div>
 
@@ -89,7 +89,7 @@ const Form = ({
                 onChange={(e) => setMessage(e.target.value)}
                 id="message"
                 placeholder="Enter your message..."
-                className="w-full min-h-[150px]"
+                className="w-full min-h-[150px] border border-gray-600"
               ></textarea>
             </div>
 
@@ -100,15 +100,15 @@ const Form = ({
                 type="submit"
                 className="
                   w-[50%]
-                  bg-blue-500 
+                  bg-orange-500 
                   text-white 
                   px-4 
                   py-2 
                   rounded-lg 
                   shadow-lg 
                   text-xl
-                  hover:bg-white 
-                  hover:text-blue-500 
+                  hover:bg-orange-300 
+                  hover:text-orange-500 
                   transition 
                   duration-300"
               >

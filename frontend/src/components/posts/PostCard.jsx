@@ -19,8 +19,8 @@ const PostCard = ({ post }) => {
           className="bg-orange-300 rounded-lg hover:shadow-xl hover:shadow-orange-300 overflow-hidden relative"
           style={bannerStyle} // Apply background image style
         >
-          <div className="absolute inset-0 flex flex-col justify-end">
-            <div className="bg-black bg-opacity-30 p-4">
+          <div className="absolute inset-0 flex flex-col justify-end ">
+            <div className="bg-black bg-opacity-50 p-4">
               <h2 className="text-xl text-white mb-2">
                 {post.title}
               </h2>

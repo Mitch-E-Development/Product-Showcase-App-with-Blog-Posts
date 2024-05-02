@@ -14,6 +14,7 @@ const ShowPost = () => {
       try {
         const postData = await getSinglePost(id);
         setPost(postData);
+
       } catch (error) {
         console.log("Error fetching data:", error);
       }

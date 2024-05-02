@@ -15,7 +15,8 @@ const productSchema = new mongoose.Schema({
         image: String,
     }],
     downloadURL: String,
-    featureImage: String
+    featureImage: String,
+    callToAction: String,
 });
 
 module.exports = mongoose.model('Product', productSchema);

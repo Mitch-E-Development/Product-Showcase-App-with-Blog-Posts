@@ -7,7 +7,7 @@ const Filters = ({ handleFilter, handleSearch }) => {
         <input
           type="text"
           onChange={(e) => handleSearch(e.target.value)}
-          className="border border-gray-500 rounded-lg w-[75%] lg:w-[50%] xl:w-[30%]"
+          className="border border-gray-500 rounded-lg w-full md:w-[70%] lg:w-[60%] xl:w-[40%]"
           placeholder="Search our posts"
         />
       </div>
@@ -95,3 +95,4 @@ const Filters = ({ handleFilter, handleSearch }) => {
 };
 
 export default Filters;
+

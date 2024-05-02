@@ -2,9 +2,9 @@ import React from "react";
 
 const Content = () => {
   return (
-    <div className="py-20 px-10 md:px-20 lg:px-40 ">
+    <div className="py-20 px-4 sm:px-6 lg:px-8 xl:px-20 p-4 py-20">
       <div className="p-6 pb-14">
-        <h2 className="text-2xl pb-4">
+        <h2 className="text-3xl pb-4">
           Welcome to I-Meditate: Your Gateway to Collective Consciousness
         </h2>
         <p>
@@ -18,8 +18,8 @@ const Content = () => {
       </div>
 
       <div className="p-6  pb-14 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-center">
-        <div className="p-6 bg-blue-200 content-center rounded-lg hover:shadow-2xl">
-          <h2 className="text-2xl pb-2">Meet Our Visionaries</h2>
+        <div className="p-10 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+          <h2 className="text-3xl pb-2">Meet Our Visionaries</h2>
           <p>
             As the creators of I-Meditate, we are passionate about leveraging
             technology to bring people together in pursuit of well-being and
@@ -32,8 +32,8 @@ const Content = () => {
           </p>
         </div>
 
-        <div className="p-6 bg-blue-200 content-center rounded-lg hover:shadow-2xl">
-          <h2 className="text-2xl pb-2">
+        <div className="p-10 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+          <h2 className="text-3xl pb-2">
             Experience the Power of Collective Meditation
           </h2>
           <p>
@@ -50,35 +50,35 @@ const Content = () => {
       </div>
 
       <div className="p-6 pb-14">
-        <h2 className="text-2xl pb-4">Why Choose I-Meditate</h2>
+        <h2 className="text-3xl pb-4">Why Choose I-Meditate</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 text-center">
-          <li className="bg-blue-200 p-4 rounded-lg hover:shadow-2xl text-center content-center">
-            <h4 className="text-xl pb-2">Community Connection</h4>
+          <li className="p-6 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+            <h4 className="text-2xl pb-2">Community Connection</h4>
             <p>
               Experience the power of shared consciousness as you meditate
               alongside like-minded individuals from around the world, fostering
               a sense of belonging and interconnectedness.
             </p>
           </li>
-          <li className="bg-blue-200 p-4 rounded-lg hover:shadow-2xl text-center content-center">
-            <h4 className="text-xl pb-2">Customized Experiences</h4>
+          <li className="p-6 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+            <h4 className="text-2xl pb-2">Customized Experiences</h4>
             <p>
               Choose from a variety of meditation topics and themes tailored to
               your specific needs and interests, ensuring a personalized and
               enriching practice every time.
             </p>
           </li>
-          <li className="bg-blue-200 p-4 rounded-lg hover:shadow-2xl text-center content-center">
-            <h4 className="text-xl pb-2">Expert Guidance</h4>
+          <li className="p-6 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+            <h4 className="text-2xl pb-2">Expert Guidance</h4>
             <p>
               Our team of experienced meditation facilitators guides you through
               each session, providing expert insights and support to help you
               deepen your practice and achieve your goals.
             </p>
           </li>
-          <li className="bg-blue-200 p-4 rounded-lg hover:shadow-2xl text-center content-center">
-            <h4 className="text-xl pb-2">Track Your Progress</h4>
+          <li className="p-6 border-4 border-orange-500 content-center rounded-lg hover:shadow-xl hover:shadow-orange-300">
+            <h4 className="text-2xl pb-2">Track Your Progress</h4>
             <p>
               Monitor your meditation journey and track your progress over time,
               gaining insights into your personal growth and transformation.
@@ -88,7 +88,7 @@ const Content = () => {
       </div>
 
       <div className="p-6 pb-14">
-        <h2 className="text-2xl pb-4">Join Us on the Journey</h2>
+        <h2 className="text-3xl pb-4">Join Us on the Journey</h2>
         <p>
           Whether you're a seasoned meditator or just beginning your mindfulness
           practice, we invite you to join us on this transformative journey

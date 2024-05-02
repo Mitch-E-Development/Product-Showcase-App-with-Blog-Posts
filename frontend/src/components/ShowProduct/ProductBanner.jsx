@@ -6,11 +6,20 @@ const ProductBanner = ({ product }) => {
     return null; // or handle the case where product is undefined
   }
 
+      // Style object for the background image
+      const bannerStyle = {
+        backgroundImage: `url(${product.featureImage})`,
+        height: "500px", // Adjust height as needed
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      };
+
   return (
-    <div className="bg-blue-200 py-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-center text-center">
-        <h2 className="text-4xl font-semibold pb-4">{product.name}</h2>
-        <p className="text-xl">Your Premium Group Meditation App</p>
+    <div className="bg-orange-300 flex text-center items-center text-white" style={bannerStyle}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-5xl">{product.name}</h2>
+        <p className="text-xl py-10">Your Premium Group Meditation App</p>
       </div>
     </div>
   );

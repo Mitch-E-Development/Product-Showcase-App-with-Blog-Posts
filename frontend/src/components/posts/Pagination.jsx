@@ -19,7 +19,7 @@ const Pagination = ({
         className={`pagination-arrow ${
           currentPage === 1
             ? "opacity-50 cursor-not-allowed"
-            : "mx-1 py-1 px-3 ounded-full hover:bg-orange-500 hover:text-white"
+            : "mx-1 py-1 px-3 rounded-full hover:bg-orange-500 hover:text-white"
         }`}
         onClick={() => handlePagination(currentPage - 1)}
         disabled={currentPage === 1}
@@ -35,7 +35,7 @@ const Pagination = ({
             className={`mx-1 py-1 px-3 rounded-full ${
               currentPage === pageNumber
                 ? "bg-orange-500 text-white"
-                : "hover:bg-orange-500"
+                : "hover:bg-orange-500 hover:text-white"
             }`}
             onClick={() => handlePagination(pageNumber)}
           >

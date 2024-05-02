@@ -1,98 +1,35 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { getFeatureProduct } from "../services/productService";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  const [id, setId] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+const Navbar = ({ isOpen, toggleMenu, handleLinkClick, id, dropdownRef }) => {
+  return (
+    <div className="px-2 p-1 relative z-50"> {/* Add z-50 here */}
+      {/* Hamburger icon */}
+      {!isOpen && (
+        <button onClick={toggleMenu} className="block text-white focus:outline-none">
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      )}
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        // At a later date,
-        // this should be changed to accomodate the products
-        // gallery page by linking to /products --> products
-        // page compenent which links to /products:id
-        const productData = await getFeatureProduct();
-        setId(productData._id);
-      } catch (error) {
-        console.log("Error fetching data:", error);
-      }
-    };
-
-    getData();
-  }, []);
-
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-    };
-  
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-  
-    useEffect(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, []);
-  
-    const handleLinkClick = () => {
-      setIsOpen(false);
-    };
-  
-    return (
-      <div className='pt-2 px-2 relative'>
-        {/* Hamburger icon */}
-        {!isOpen && (
-          <button onClick={toggleMenu} className='block text-white focus:outline-none'>
-            <svg className='h-8 w-8' fill='none' viewBox='0 0 20 20' stroke='currentColor'>
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16m-7 6h7'></path>
-            </svg>
-          </button>
-        )}
-  
-        {/* Dropdown menu */}
-        {isOpen && (
-          <div ref={dropdownRef} className='absolute top-12 right-2 bg-orange-500 rounded-md hover:shadow-2xl p-4 px-10'>
-            <div className="flex flex-col items-start p-4 text-2xl text-white">
-            <Link
-              to="/"
-              className="py-4 block hover:text-blue-200"
-              onClick={handleLinkClick}
-            >
+      {/* Dropdown menu */}
+      {isOpen && (
+        <div ref={dropdownRef} className="absolute top-10 right-1 bg-orange-500 rounded-md hover:shadow-2xl p-4 px-10 z-50"> {/* Add z-50 here */}
+          <div className="flex flex-col items-start p-4 text-2xl text-white">
+            <Link to="/" className="py-4 block hover:text-orange-300" onClick={handleLinkClick}>
               Home
             </Link>
-            <Link
-              to={`/products/${id}`}
-              className="py-4 block hover:text-blue-200"
-              onClick={handleLinkClick}
-            >
+            <Link to={`/products/${id}`} className="py-4 block hover:text-orange-300" onClick={handleLinkClick}>
               Products
             </Link>
-            <Link
-              to="/posts"
-              className="py-4 block hover:text-blue-200"
-              onClick={handleLinkClick}
-            >
+            <Link to="/posts" className="py-4 block hover:text-orange-300" onClick={handleLinkClick}>
               Posts
             </Link>
-            <Link
-              to="/about"
-              className="py-4 block hover:text-blue-200"
-              onClick={handleLinkClick}
-            >
+            <Link to="/about" className="py-4 block hover:text-orange-300" onClick={handleLinkClick}>
               About
             </Link>
-            <Link
-              to="/contact"
-              className="py-4 block hover:text-blue-200"
-              onClick={handleLinkClick}
-            >
+            <Link to="/contact" className="py-4 block hover:text-orange-300" onClick={handleLinkClick}>
               Contact
             </Link>
           </div>

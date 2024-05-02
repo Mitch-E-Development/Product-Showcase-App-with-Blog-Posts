@@ -39,7 +39,7 @@ exports.getFeatureProduct = async (req, res) => {
 exports.createProduct = async (req, res) => {
   console.log(req.body);
   try {
-    const { name, description, featured, features, benefits, downloadURL, featureImage } = req.body;
+    const { name, description, featured, features, benefits, downloadURL, featureImage, callToAction } = req.body;
     const newProduct = new Product({
       name,
       description,
@@ -47,7 +47,8 @@ exports.createProduct = async (req, res) => {
       features,
       benefits,
       downloadURL,
-      featureImage
+      featureImage,
+      callToAction
     });
     console.log(newProduct)
     await newProduct.save();
