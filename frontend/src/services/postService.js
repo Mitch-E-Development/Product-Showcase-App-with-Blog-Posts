@@ -13,15 +13,7 @@ export const getPosts = async () => {
   }
 };
 
-export const searchPosts = async (query) => {
-  try {
-      const response = await axios.get(`${api_url}/search?query=${query}`);
-      return response.data;
-  } catch (error) {
-      console.error("Error searching posts:", error);
-      throw error;
-  }
-};
+
 
 
 export const getSinglePost = async (id) => {

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../services/productService";
 
-import ProductBanner from "../components/ShowProduct/ProductBanner";
-import Summary from "../components/ShowProduct/Summary";
-import Features from "../components/ShowProduct/Features";
-import Reasons from "../components/ShowProduct/Reasons";
-import CallToAction from "../components/ShowProduct/CallToAction";
+import ProductBanner from "../components/showProduct/ProductBanner";
+import Summary from "../components/showProduct/Summary";
+import Features from "../components/showProduct/Features";
+import Reasons from "../components/showProduct/Reasons";
+import CallToAction from "../components/showProduct/CallToAction";
 
 const ShowProduct = () => {
   const [product, setProduct] = useState({});
